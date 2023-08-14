@@ -1,0 +1,8 @@
+# Arquivos específicos do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ambiente virtual
+Attack on Ancestors/
