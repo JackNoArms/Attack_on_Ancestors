@@ -6,3 +6,7 @@ __pycache__/
 
 # Ambiente virtual
 Attack on Ancestors/
+
+# Classes de Teste
+test_*
+Test_*

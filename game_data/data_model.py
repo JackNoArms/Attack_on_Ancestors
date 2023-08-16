@@ -48,12 +48,12 @@ class DataModel:
         df.to_csv(archive_name, index=False)
         return df
     
-    def show_data(self) -> None:
+    def show_data(self):
         """
         Lê e imprime os dados do arquivo CSV.
         """
         df = pd.read_csv(self.archive_name)
-        print(df)
+        return df
     
     def delete_data(self, n_cod: int):
         """
