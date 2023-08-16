@@ -44,7 +44,7 @@ class DataModel:
         archive_name = self.archive_name
         df = pd.read_csv(archive_name)
         new_df = pd.DataFrame(data, columns=df.columns)
-        df = df.append(new_df, ignore_index=True)
+        df = pd.concat([df, new_df], ignore_index=True)
         df.to_csv(archive_name, index=False)
         return df
     
