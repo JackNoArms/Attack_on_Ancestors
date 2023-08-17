@@ -14,7 +14,7 @@ class TableModel:
         Args:
             archive_name (str): O nome do arquivo CSV.
         """
-        self.archive_name = archive_name
+        self.archive_name = archive_name + ".csv"
     
     def create_csv(self, columns):
         """
@@ -23,7 +23,7 @@ class TableModel:
         Args:
             columns (list): Uma lista de strings representando as colunas do CSV.
         """
-        archive_name = self.archive_name + ".csv"
+        archive_name = self.archive_name
         with open(archive_name, mode="w", newline="") as archive_csv:
             writer = csv.DictWriter(archive_csv, fieldnames=columns)
             writer.writeheader()
