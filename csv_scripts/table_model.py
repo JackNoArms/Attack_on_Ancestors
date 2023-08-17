@@ -23,11 +23,21 @@ class TableModel:
         Args:
             columns (list): Uma lista de strings representando as colunas do CSV.
         """
+        original_directory = os.getcwd()
+        game_data_directory = os.path.join(original_directory, "game_data")
+
+        if not os.path.exists(game_data_directory):
+            os.makedirs(game_data_directory)
+
+        os.chdir(game_data_directory)
+
         archive_name = self.archive_name
         with open(archive_name, mode="w", newline="") as archive_csv:
             writer = csv.DictWriter(archive_csv, fieldnames=columns)
             writer.writeheader()
         print(f"Arquivo {archive_name} criado com sucesso!")
+
+        os.chdir(original_directory)
     
     def exclude_csv(self):
         """
