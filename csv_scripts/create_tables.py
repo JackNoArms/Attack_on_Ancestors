@@ -5,7 +5,7 @@ from table_model import TableModel
 # PERSONAGENS
 tabela = TableModel("Personagens")
 colunas = ["COD", "NOME", "RACA", "CLASSE", "LEVEL", "ESTADO", "VIDA", "MANA", "VIGOR", "DANO_FISICO", "DANO_ESPECIAL", "DEFESA", "DEFESA_ESPECIAL", "CHANCE_ESQUIVA",
-           "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA", "NPC"]
+           "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA", "LOCALIZACAO", "NPC"]
 tabela.create_csv(columns=colunas)
 
 # RAÇAS
@@ -66,5 +66,5 @@ tabela.create_csv(columns=colunas)
 tabela = TableModel("Npc")
 # A coluna FUNCAO definiria o que o NPC faz, ex:Vendedor, Mentor(Dá missão)
 # A coluna NATUREZA define se o NPC gostará de personagens que tem mais ações ruins, boas ou neutras.
-colunas = ["COD", "FRASES", "TP_ACOES", "FUNCAO", "NATUREZA"]
+colunas = ["COD_PERSONAGEM", "FRASES", "TP_ACOES", "FUNCAO", "NATUREZA", "LOCALIZACAO"]
 tabela.create_csv(columns=colunas)
