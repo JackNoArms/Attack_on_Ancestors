@@ -23,10 +23,10 @@ class TableModel:
         Args:
             columns (list): Uma lista de strings representando as colunas do CSV.
         """
-        archive_name = self.archive_name
+        archive_name = self.archive_name + ".csv"
         with open(archive_name, mode="w", newline="") as archive_csv:
             writer = csv.DictWriter(archive_csv, fieldnames=columns)
-            writer.writeheader()  # Escreve o cabeçalho das colunas
+            writer.writeheader()
         print(f"Arquivo {archive_name} criado com sucesso!")
     
     def exclude_csv(self):
