@@ -46,12 +46,12 @@ colunas = ["COD", "NOME", "DESCRICAO", "EFEITO", "PROFICIENCIA"]
 tabela.create_csv(columns=colunas)
 
 # FRASES_NARRADOR
-tabela = TableModel("Narrador")
+tabela = TableModel("Frases_Narrador")
 colunas = ["COD", "FRASES", "TP_ACOES"]
 tabela.create_csv(columns=colunas)
 
 # FRASES_CLASSES
-tabela = TableModel("Narrador")
+tabela = TableModel("Frases_Classes")
 # A coluna TP_ACOES diria se a ação é boa, ruim ou neutra
 colunas = ["COD", "FRASES", "TP_ACOES"]
 tabela.create_csv(columns=colunas) 
