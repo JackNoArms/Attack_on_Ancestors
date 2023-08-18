@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg'); /* Coloque o caminho da imagem de fundo aqui */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-list li {
+    margin-bottom: 10px;
+}
