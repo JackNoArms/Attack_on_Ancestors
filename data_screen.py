@@ -1,7 +1,6 @@
 from dash import Dash, html, dcc, Input, Output
 import os
 import pandas as pd
-import plotly.express as px
 
 app = Dash(__name__)
 
@@ -19,16 +18,7 @@ app.layout = html.Div([
             options=[
                 {'label': 'Personagens.csv', 'value': 'Personagens.csv'},
                 {'label': 'Racas.csv', 'value': 'Racas.csv'},
-                {'label': 'Classes.csv', 'value': 'Classes.csv'},
-                {'label': 'Estados.csv', 'value': 'Estados.csv'},
-                {'label': 'Itens.csv', 'value': 'Itens.csv'},
-                {'label': 'Bolsas.csv', 'value': 'Bolsas.csv'},
-                {'label': 'Bestiario.csv', 'value': 'Bestiario.csv'},
-                {'label': 'Atributos.csv', 'value': 'Atributos.csv'},
-                {'label': 'Frases_Narrador.csv', 'value': 'Frases_Narrador.csv'},
-                {'label': 'Frases_Classes.csv', 'value': 'Frases_Classes.csv'},
-                {'label': 'Acoes_Personagens.csv', 'value': 'Acoes_Personagens.csv'},
-                {'label': 'Frases_Npc.csv', 'value': 'Frases_Npc.csv'},
+                # ... Outras opções ...
                 {'label': 'Reinos.csv', 'value': 'Reinos.csv'},
             ],
             value='Personagens.csv',
@@ -40,18 +30,15 @@ app.layout = html.Div([
         html.Div(id="output-table"),
     ]),
     
-    html.Div([
-        html.H2("Gráfico de Barras de Vida"),
-        dcc.Graph(id="health-bar-chart"),
-    ]),
+    html.Div(id="health-mana-vigor-bars")  # Div para exibir as barras de vida, mana e vigor
 ])
 
 @app.callback(
-    [Output("output-table", "children"),
-     Output("health-bar-chart", "figure")],
+    Output("output-table", "children"),
+    Output("health-mana-vigor-bars", "children"),
     [Input("csv-selector", "value")]
 )
-def read_csv_and_plot(selected_csv):
+def read_csv(selected_csv):
     game_data_path = os.path.join(os.getcwd(), "game_data")
     file_path = os.path.join(game_data_path, selected_csv)
     
@@ -61,20 +48,61 @@ def read_csv_and_plot(selected_csv):
             [html.Tr([html.Th(col) for col in df.columns])] +
             [html.Tr([html.Td(df.iloc[i][col]) for col in df.columns]) for i in range(len(df))]
         )
+        
+        # Criação das barras de vida, mana e vigor
+        health_mana_vigor_bars = []
+        for index, row in df.iterrows():
+            name = row["NOME"]
 
-        # Filtrar as colunas desejadas para o gráfico de barras
-        columns_to_plot = ['VIDA_T', 'VIDA_A', 'MANA_T', 'MANA_A', 'VIGOR_T', 'VIGOR_A']
-        df_filtered = df[columns_to_plot]
+            health_bar = html.Div(
+                className="character-card",  # Use a classe do estilo para o card
+                children=[
+                    html.P(f"{name}: ", className="bar-label"),
+                    f"({row['VIDA_A']} / {row['VIDA_T']})",
+                    html.Div(
+                        className="health-bar",
+                        style={
+                            'width': f'{(row["VIDA_T"] - row["VIDA_A"]) / row["VIDA_T"] * 100}%'
+                                    if row["VIDA_T"] != 0 else '100%'
+                        }
+                    )
+                ]
+            )
 
-        # Criar o gráfico de barras
-        fig = px.bar(df_filtered, orientation='h')
-        fig.update_layout(title_text='Barras de Vida dos Personagens')
+            mana_bar = html.Div(
+                className="character-card",  # Use a classe do estilo para o card
+                children=[
+                    f"({row['MANA_A']} / {row['MANA_T']})",
+                    html.Div(
+                        className="mana-bar",
+                        style={
+                            'width': f'{row["MANA_A"] / row["MANA_T"] * 100}%' if row["MANA_T"] != 0 else '0%'
+                        }
+                    )
+                ]
+            )
+
+            vigor_bar = html.Div(
+                className="character-card",  # Use a classe do estilo para o card
+                children=[
+                    f"({row['VIGOR_A']} / {row['VIGOR_T']})",
+                    html.Div(
+                        className="vigor-bar",
+                        style={
+                            'width': f'{row["VIGOR_A"] / row["VIGOR_T"] * 100}%' if row["VIGOR_T"] != 0 else '0%'
+                        }
+                    )
+                ]
+            )
+
+            # Adicione cada conjunto de barras ao contêiner health_mana_vigor_bars
+            health_mana_vigor_bars.extend([health_bar, mana_bar, vigor_bar])
 
     except Exception as e:
         table = html.Pre(f"Erro ao ler o arquivo {selected_csv}: {str(e)}")
-        fig = {}
-
-    return table, fig
+        health_mana_vigor_bars = []  # Caso haja erro, não exibe as barras de vida, mana e vigor
+    
+    return table, health_mana_vigor_bars
 
 if __name__ == '__main__':
     app.run_server(debug=True)

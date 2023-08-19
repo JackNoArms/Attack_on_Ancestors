@@ -57,3 +57,93 @@ div h2 {
     margin: auto;
     padding: 20px;
 }
+
+/* Define as cores para as barras de vida e mana */
+:root {
+    --vida-cor-fundo: #ddd;
+    --vida-cor-preenchimento: rgba(255, 0, 0, 0.8); /* Vermelho com opacidade */
+    --mana-cor-fundo: #ddd;
+    --mana-cor-preenchimento: rgba(0, 0, 255, 0.8); /* Azul com opacidade */
+    --vigor-cor-fundo: #ddd;
+    --vigor-cor-preenchimento: rgba(0, 128, 0, 0.8); /* Verde com opacidade */
+}
+
+ /* Estilos para a barra de vida */
+.health-bar {
+    width: 30px; /* Largura fixa */
+    height: 15px; /* Altura ajustada para melhor visualização */
+    background-color: var(--vida-cor-preenchimento);
+    border: 1px solid #000;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 15px;
+    display: flex;
+    overflow: hidden;
+}
+  
+.health-bar-fill {
+    width: 100px; /* A barra de preenchimento ocupa toda a largura */
+    height: 100%;
+    background-color: var(--vida-cor-preenchimento);
+    border-radius: 5px;
+}
+
+.health-bar-remaining {
+    width: 100%; /* A largura é definida pela largura restante da barra */
+    height: 100%;
+    background-color: transparent; /* Sem cor de fundo (espaço vazio) */
+}
+
+ /* Estilos para a barra de mana */
+.mana-bar {
+    width: 35%;
+    height: 15px;
+    background-color: var(--mana-cor-fundo);
+    border: 1px solid #000;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 10px;
+}
+  
+.mana-bar-fill {
+    width: 100%; /* Valor inicial (ajuste conforme necessário) */
+    height: 100%;
+    background-color: var(--mana-cor-preenchimento);
+    border-radius: 5px;
+}
+
+/* Estilos para a barra de vigor */
+.vigor-bar {
+    width: 35%;
+    height: 15px;
+    background-color: var(--vigor-cor-fundo);
+    border: 1px solid #000;
+    border-radius: 5px;
+    position: relative;
+}
+
+.vigor-bar-fill {
+    width: 100%; /* Valor inicial (ajuste conforme necessário) */
+    height: 100%;
+    background-color: var(--vigor-cor-preenchimento);
+    border-radius: 5px;
+}
+
+/* Estilo para o nome abaixo das barras */
+.bar-label {
+    text-align: center;
+    margin-top: 10px; /* Espaçamento superior */
+    font-size: 12px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilo para os cards de informações */
+.character-card {
+    background-color: rgba(255, 243, 224, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
