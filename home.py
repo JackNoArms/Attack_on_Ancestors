@@ -12,7 +12,11 @@ app.layout = html.Div([
             html.Li("Sair")
         ], className="menu-list")
     ], className="menu"),
-    html.Audio(id='audio', src='/assets/background_audio.mp3', autoPlay='autoplay', loop='loop')
+    html.Audio(id='audio', src='/assets/background_audio.mp3', autoPlay='autoplay', loop='loop'),
+
+       app.css.append_css({
+    'external_url': '/assets/styles.css'
+})
 ])
 
 if __name__ == '__main__':

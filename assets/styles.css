@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'OldLondon';
+  src: url('fonts/OldLondon.ttf') format('truetype');
+}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +16,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  font-family: Arial, sans-serif;
+  font-family: 'OldLondon', sans-serif;
   height: 100vh;
 }
 
@@ -22,13 +28,13 @@ body {
 }
 
 .menu {
-  background-color: rgba(253, 245, 230, 0.527); /* Cor de papel envelhecido com transparência */
+  background-color: rgba(0, 0, 0, 0.527); /* Cor de papel envelhecido com transparência */
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   color: coral;
   text-shadow: 2px 2px black;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'OldLondon', sans-serif;
   box-shadow: rgb(0, 0, 0) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.10) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   width: 300px; /* Largura do menu */
   margin: calc(50vh - 150px) auto; /* Centraliza vertical e horizontalmente */
@@ -50,6 +56,7 @@ body {
 }
 
 .menu-list li:hover{
-  background-color: rgba(0, 0, 0, 0.527);
+  background-color: rgba(255, 255, 255, 0.502);
   border-radius: 10px;
 }
+
