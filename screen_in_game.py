@@ -1,11 +1,15 @@
-from dash import Dash, html, dcc, callback, Input, Output, State
-import dash
+from dash import Dash, html, dcc, Input, Output
 import os
 import pandas as pd
 
-app = dash.Dash(__name__)
+app = Dash(__name__)
 
 app.layout = html.Div([
+    html.Link(
+        rel='stylesheet',
+        href='/assets/screen_in_game.css'  # Caminho para o arquivo CSS na pasta 'assets'
+    ),
+    
     html.Div([
         html.H1("Leitura de Arquivos CSV"),
         
@@ -27,15 +31,13 @@ app.layout = html.Div([
                 {'label': 'Reinos.csv', 'value': 'Reinos.csv'},
             ],
             value='Personagens.csv',
-            style={'background-color': 'rgba(255, 243, 224, 0.35)'}
         ),
-    ], style={'display': 'inline-block', 'width': '40%', 'vertical-align': 'top', 'padding': '20px'}),
+    ]),
     
     html.Div([
         html.H2("Tabela de Dados"),
         html.Div(id="output-table"),
-    ], style={'display': 'inline-block', 'width': '55%', 'vertical-align': 'top', 'padding': '20px'}),
-    
+    ]),
 ])
 
 @app.callback(
@@ -56,7 +58,6 @@ def read_csv(selected_csv):
         table = html.Pre(f"Erro ao ler o arquivo {selected_csv}: {str(e)}")
     
     return table
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
