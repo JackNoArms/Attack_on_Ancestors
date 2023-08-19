@@ -1,5 +1,6 @@
 import pandas as pd
 from table_model import TableModel
+import os
 import csv
 
 class DataModel:
@@ -30,6 +31,8 @@ class DataModel:
             archive_name (str): O nome do arquivo CSV a ser manipulado.
         """
         self.archive_name = archive_name
+        game_data_path = os.path.join(os.getcwd(), "game_data")  # Obtém o caminho completo da pasta "game_data"
+        self.archive_name = os.path.join(game_data_path, archive_name)  # Junta o caminho completo com o nome do arquivo CSV
     
     def add_data(self, data: list) -> pd.DataFrame:
         """

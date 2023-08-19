@@ -2,13 +2,26 @@ import random
 import string
 from data_model import DataModel
 
+def load_reinos(data_model):    
+    reinos_data = [
+    ["1", "Reino de Avaloria"],
+    ["2", "Domínio de Eldoria"],
+    ["3", "Terras de Arkania"],
+    ["4", "Reino das Chamas"],
+    ["5", "União das Águas"]
+]
+    
+    data_model.add_data(reinos_data)
+
 def load_personagens(data_model):
     dados_personagens = [
-        ["1", "Lucas", "Humano", "Guerreiro", "10", "Normal", "100", "100", "50", "50", "60", "60", "20", "15", "30", "25", "15", "18", "12", "14", "10", "8", "5", "1", "False"],
-        ["2", "Victor", "Elfo", "Mago", "8", "Envenenado", "80", "70", "80", "40", "50", "40", "10", "25", "20", "30", "20", "12", "16", "10", "18", "15", "3", "False"],
-        ["3", "Mateus", "Anão", "Cavaleiro", "12", "Normal", "120", "90", "30", "10", "70", "50", "25", "10", "45", "35", "10", "16", "14", "14", "8", "10", "4", "False"],
-        ["4", "Stanley", "Orc", "Bárbaro", "6", "Normal", "80", "80", "0", "0", "80", "80", "30", "10", "40", "20", "5", "20", "15", "16", "6", "6", "2", "False"],
-        ["5", "Elena", "Elfo", "Arqueiro", "9", "Normal", "90", "90", "60", "50", "40", "40", "15", "10", "25", "30", "25", "14", "18", "12", "12", "10", "3", "False"]
+        ["1", "Lucas", "Humano", "Guerreiro", "10", "Normal", "100", "100", "50", "50", "60", "60", "20", "15", "30", "25", "15", "18", "12", "14", "10", "8", "5", "False"],
+        ["2", "Victor", "Elfo", "Mago", "8", "Envenenado", "80", "70", "80", "40", "50", "40", "10", "25", "20", "30", "20", "12", "16", "10", "18", "15", "False"],
+        ["3", "Mateus", "Anão", "Cavaleiro", "12", "Normal", "120", "90", "30", "10", "70", "50", "25", "10", "45", "35", "10", "16", "14", "14", "8", "10", "False"],
+        ["4", "Stanley", "Orc", "Bárbaro", "6", "Normal", "80", "80", "0", "0", "80", "80", "30", "10", "40", "20", "5", "20", "15", "16", "6", "6", "False"],
+        ["5", "Elena", "Elfo", "Arqueiro", "9", "Normal", "90", "90", "60", "50", "40", "40", "15", "10", "25", "30", "25", "14", "18", "12", "12", "10", "False"],
+        ["6", "NPC1", "Humano", "Vendedor", "Normal", "80", "80", "50", "50", "60", "60", "10", "10", "20", "20", "10", "12", "12", "10", "8", "8", "True"],
+        ["7", "NPC2", "Elfo", "Mentor", "Normal", "100", "100", "60", "60", "70", "70", "15", "15", "25", "25", "20", "14", "14", "12", "10", "10", "True"]
     ]
     data_model.add_data(dados_personagens)
 
@@ -129,11 +142,70 @@ def load_frases_narrador(data_model):
     ]
     data_model.add_data(frases_narrador_data)
 
+def load_frases_classes(data_model):
+    frases_classes_data = [
+        ["1", "1", "Você ousa me desafiar, verme covarde? Venha então, e eu mostrarei a você o que é ser um verdadeiro guerreiro!", "Ruim"],
+        ["2", "1", "Correr? Eu não sou um covarde! Prepare-se para enfrentar minha fúria implacável!", "Ruim"],
+        ["3", "1", "Precisa de equipamento? Minhas armas são forjadas no calor da batalha!", "Neutra"],
+        ["4", "1", "Você tem algo para vender? Talvez eu me interesse, se o preço for justo.", "Neutra"],
+        ["5", "1", "O caminho que escolherei é o da coragem e da honra. Lutarei até o fim!", "Neutra"],
+        ["6", "2", "Claro que ajudaria, afinal, meus conhecimentos podem iluminar o caminho.", "Boa"],
+        ["7", "2", "Atacar-me? Tolo! Minhas magias são tão poderosas quanto imprevisíveis.", "Ruim"],
+        ["8", "2", "Correr não é uma opção quando se enfrenta a magia. Meus feitiços irão te encontrar.", "Ruim"],
+        ["9", "2", "Se precisa de itens mágicos, estou disposto a negociar. Eles podem mudar seu destino.", "Neutra"],
+        ["10", "2", "Você tem artefatos mágicos para vender? Sou sempre receptivo a novos objetos encantados.", "Neutra"],
+        ["11", "3", "Você necessita de proteção? Minha armadura e escudo estão à sua disposição.", "Boa"],
+        ["12", "3", "Atacar-me seria um erro que custaria caro. Sinta o peso de minha espada!", "Ruim"],
+        ["13", "3", "Fugir? Essa não é uma escolha sábia quando se enfrenta um cavaleiro!", "Ruim"],
+        ["14", "3", "Precisa de algo? Eu também tenho alguns itens para vender, se for do seu interesse.", "Neutra"],
+        ["15", "3", "Tem algo para vender? Estou disposto a ouvir sua oferta.", "Neutra"],
+        ["16", "4", "Quem ousa me atacar? Meu machado esmagará todos os que cruzarem meu caminho!", "Ruim"],
+        ["17", "4", "Fugir? Hahaha, acha mesmo que escapará da fúria do meu machado?!", "Ruim"],
+        ["18", "4", "Quer comprar algo? Minhas pilhagens têm as melhores ofertas.", "Neutra"],
+        ["19", "4", "Tem algo para vender? Se for valioso, talvez eu o compre.", "Neutra"],
+        ["20", "4", "Que caminho seguir? O caminho do bárbaro, cheio de desafios e conquistas!", "Neutra"],
+        ["21", "5", "Aceitaria me ajudar? Minhas flechas nunca erram seu alvo.", "Boa"],
+        ["22", "5", "Atacar-me à distância? Acho que subestima minha habilidade com o arco.", "Ruim"],
+        ["23", "5", "Fugir? Não adianta correr, minhas flechas sempre alcançam.", "Ruim"],
+        ["24", "5", "Quer comprar algo? Minhas flechas mágicas podem ser úteis para você.", "Neutra"],
+        ["25", "5", "Quer vender algo? Se tiver algo de interesse para um arqueiro, podemos negociar.", "Neutra"],
+    ]
+    data_model.add_data(frases_classes_data)
+
+def load_acoes_personagens(data_model):
+    acoes_personagens = [
+        ["1", "1", "1", "Boa"],
+        ["2", "1", "2", "Ruim"],
+        ["3", "1", "3", "Ruim"],
+        ["4", "2", "4", "Neutra"],
+        ["5", "2", "5", "Neutra"],
+        ["6", "3", "6", "Boa"],
+        ["7", "3", "7", "Ruim"],
+        ["8", "4", "8", "Neutra"],
+        ["9", "4", "9", "Neutra"],
+        ["10", "5", "10", "Boa"]
+    ]
+    
+    data_model.add_data(acoes_personagens)
+
+    
+def load_frases_npc(data_model):
+    
+    npc_data = [
+        ["1", "6", "Olá, aventureiro! Precisa de itens para suas jornadas?", "Neutra", "Vendedor", "Neutra", "1"],
+        ["2", "7", "Ei, você! Está pronto para enfrentar desafios?", "Boa", "Mentor", "Boa", "2"],
+        ["3", "7", "Vai encarar meu desafio? Hahaha, boa sorte!", "Ruim", "Mentor", "Boa", "3"],
+        ["4", "6", "Bem-vindo, aventureiro! O que você procura?", "Neutra", "Vendedor", "Neutra", "1"],
+        ["5", "6", "Se você tem itens valiosos, estou disposto a comprá-los.", "Neutra", "Vendedor", "Neutra", "2"]
+    ]
+    
+    data_model.add_data(npc_data)
 
 
 if __name__ == "__main__":
 
     # Crie instâncias do DataModel para cada tabela
+    data_model_reinos = DataModel("Reinos.csv")
     data_model_personagens = DataModel("Personagens.csv")
     data_model_racas = DataModel("Racas.csv")
     data_model_classes = DataModel("Classes.csv")
@@ -143,8 +215,12 @@ if __name__ == "__main__":
     data_model_bestiario = DataModel("Bestiario.csv")
     data_model_atributos = DataModel("Atributos.csv")
     data_model_frases_narrador = DataModel("Frases_Narrador.csv")
-
+    data_model_frases_classes = DataModel("Frases_Classes.csv")
+    data_model_acoes_personagens = DataModel("Acoes_Personagens.csv")
+    data_model_frases_npc = DataModel("Frases_Npc.csv")
+    
     # Chame as funções de carga de dados para cada tabela
+    load_reinos(data_model_reinos)
     load_personagens(data_model_personagens)
     load_racas(data_model_racas)
     load_classes(data_model_classes)
@@ -154,4 +230,8 @@ if __name__ == "__main__":
     load_bestiario(data_model_bestiario, data_model_reinos)
     load_atributos(data_model_atributos)
     load_frases_narrador(data_model_frases_narrador)
+    load_frases_classes(data_model_frases_classes)
+    load_acoes_personagens(data_model_acoes_personagens)
+    load_frases_npc(data_model_frases_npc)
+    
     print("Carga de dados concluída.")

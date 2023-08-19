@@ -52,18 +52,18 @@ tabela.create_csv(columns=colunas)
 
 # FRASES_CLASSES
 tabela = TableModel("Frases_Classes")
-# A coluna TP_ACOES diria se a ação é boa, ruim ou neutra
-colunas = ["COD", "COD_CLASSE, ""FRASES", "TP_ACOES"]
+# A coluna frase são respostas que supostamente a classe diria em um diálogo, a coluna TP_ACOES diria se a ação é boa, ruim ou neutra
+colunas = ["COD", "COD_CLASSE", "FRASES", "TP_ACOES"]
 tabela.create_csv(columns=colunas) 
 
 # ACOES_PERSONAGENS
 tabela = TableModel("Acoes_Personagens")
 # A coluna TP_ACOES diria se a ação é boa, ruim ou neutra
-colunas = ["COD_PERSONAGEM", "COD_FRASES_CLASSES", "TP_ACOES_FRASES_CLASSES"]
+colunas = ["COD","COD_PERSONAGEM", "COD_FRASES_CLASSES", "TP_ACOES_FRASES_CLASSES"]
 tabela.create_csv(columns=colunas)
 
 # FRASES_NPC
-tabela = TableModel("Npc")
+tabela = TableModel("Frases_Npc")
 # A coluna FUNCAO definiria o que o NPC faz, ex:Vendedor, Mentor(Dá missão)
 # A coluna NATUREZA define se o NPC gostará de personagens que tem mais ações ruins, boas ou neutras.
 colunas = ["COD", "COD_PERSONAGEM", "FRASES", "TP_ACOES", "FUNCAO", "NATUREZA", "COD_REINO"]

@@ -1,0 +1,6 @@
+COD,NOME,DESCRICAO,EFEITO_+_0,EFEITO_+_1,EFEITO_+_2,EFEITO_+_3
+1,Poção de Cura,Uma poção capaz de restaurar vida do alvo,10,15,20,25
+2,Poção de Mana,Uma poção capaz de restaurar mana do alvo,10,15,20,25
+3,Poção de Vigor,Uma poção capaz de restaurar vigor do alvo,10,15,20,25
+4,Poção de Força,Uma poção capaz de aumentar temporariamente a força do alvo,2,3,4,5
+5,Poção de Agilidade,Uma poção capaz de aumentar temporariamente a Agilidade do alvo,2,3,4,5
