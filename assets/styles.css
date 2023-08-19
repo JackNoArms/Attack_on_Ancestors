@@ -22,11 +22,14 @@ body {
 }
 
 .menu {
-  background-color: rgba(253, 245, 230, 0.35); /* Cor de papel envelhecido com transparência */
+  background-color: rgba(253, 245, 230, 0.527); /* Cor de papel envelhecido com transparência */
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  color: coral;
+  text-shadow: 2px 2px black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  box-shadow: rgb(0, 0, 0) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.10) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   width: 300px; /* Largura do menu */
   margin: calc(50vh - 150px) auto; /* Centraliza vertical e horizontalmente */
 }
@@ -46,6 +49,7 @@ body {
   margin: 10px;
 }
 
-.pagina-teste {
-  background-image: none;
+.menu-list li:hover{
+  background-color: rgba(0, 0, 0, 0.527);
+  border-radius: 10px;
 }
