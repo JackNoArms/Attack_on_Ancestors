@@ -1,12 +1,17 @@
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
   min-height: 100%;
-  background-image: url('background_image_tst.png');
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  background-image: url('background_image.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   font-family: Arial, sans-serif;
+  height: 100vh;
 }
 
 .container {
@@ -23,7 +28,7 @@ body {
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   width: 300px; /* Largura do menu */
-  margin: calc(50vh - 150px) auto; /* Centraliza verticalmente */
+  margin: calc(50vh - 150px) auto; /* Centraliza vertical e horizontalmente */
 }
 
 .menu-title {
