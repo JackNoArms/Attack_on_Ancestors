@@ -1,0 +1,59 @@
+/* Defina estilos para o corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    background-image: none;
+}
+
+/* Estilos para o cabeçalho */
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos para o seletor de CSV */
+#csv-selector {
+    background-color: rgba(255, 243, 224, 0.35);
+    margin: auto;
+    width: 60%;
+    padding: 20px;
+}
+
+/* Estilos para a tabela */
+#output-table {
+    background-color: rgba(255, 243, 224, 0.35);
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* Estilos para as células da tabela */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para os rótulos do seletor de CSV */
+label {
+    margin-right: 10px;
+}
+
+div h2 {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
