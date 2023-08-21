@@ -1,6 +1,1 @@
-COD,NOME,DESCRICAO,HABILIDADES
-1,Guerreiro,Mestre das armas e da batalha.,Habilidades de combate corpo a corpo
-2,Mago,Manipulador de magia arcan,Habilidades mágicas poderosas
-3,Cavaleiro,Protetor implacável.,Habilidades defensivas e de montaria
-4,Bárbaro,Força bruta e fúria.,Habilidades de combate frenético
-5,Arqueiro,Mestre do arco e flecha.,Habilidades de ataque à distância
+COD,NOME,DESCRICAO,FORCA,DESTREZA,CONSTITUICAO,CARISMA,INTELIGENCIA

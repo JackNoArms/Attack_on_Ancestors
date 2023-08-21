@@ -1,6 +1,1 @@
 COD,NOME,DESCRICAO,EFEITO
-1,Normal,Estado padrão do personagem.,Nenhum efeito especial
-2,Envenenado,Envenenamento afetando o personagem.,Perda gradual de vida
-3,Atordoado,Personagem atordoado e incapaz de agir.,Incapacidade de ações por um turno
-4,Enraizado,Personagem preso no lugar.,Incapacidade de se mover por um turno
-5,Confuso,Personagem confuso e desorientado.,Ações imprevisíveis

@@ -1,6 +1,1 @@
 COD,COD_PERSONAGEM,FRASES,TP_ACOES,FUNCAO,NATUREZA,COD_REINO
-1,6,"Olá, aventureiro! Precisa de itens para suas jornadas?",Neutra,Vendedor,Neutra,1
-2,7,"Ei, você! Está pronto para enfrentar desafios?",Boa,Mentor,Boa,2
-3,7,"Vai encarar meu desafio? Hahaha, boa sorte!",Ruim,Mentor,Boa,3
-4,6,"Bem-vindo, aventureiro! O que você procura?",Neutra,Vendedor,Neutra,1
-5,6,"Se você tem itens valiosos, estou disposto a comprá-los.",Neutra,Vendedor,Neutra,2

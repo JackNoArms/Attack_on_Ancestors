@@ -4,28 +4,28 @@ from table_model import TableModel
 
 # PERSONAGENS
 tabela = TableModel("Personagens")
-colunas = ["COD", "NOME", "RACA", "CLASSE", "LEVEL", "ESTADO", "VIDA_T","VIDA_A", "MANA_T", "MANA_A", "VIGOR_T", "VIGOR_A", "DANO_FISICO", "DANO_ESPECIAL", "DEFESA", "DEFESA_ESPECIAL", "CHANCE_ESQUIVA",
+colunas = ["COD", "NOME","GENERO", "RACA", "CLASSE", "LEVEL", "ESTADO", "VIDA_T","VIDA_A", "MANA_T", "MANA_A", "VIGOR_T", "VIGOR_A", "DANO_FISICO", "DANO_ESPECIAL", "DEFESA", "DEFESA_ESPECIAL", "CHANCE_ESQUIVA",
            "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA", "COD_REINO", "NPC"]
 tabela.create_csv(columns=colunas)
 
-# RAÇAS
+# RAÇAS 25 PONTOS DIVIDOS ENTRE OS ATRIBUTOS
 tabela = TableModel("Racas")
-colunas = ["COD", "NOME", "DESCRICAO", "HABILIDADES"]
+colunas = ["COD", "NOME", "DESCRICAO", "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA"]
 tabela.create_csv(columns=colunas)
 
-# CLASSES
+# CLASSES 6 PONTOS DIVIDIDOS ENTRE OS ATRIBUTOS
 tabela = TableModel("Classes")
-colunas = ["COD", "NOME", "DESCRICAO", "HABILIDADES"]
+colunas = ["COD", "NOME", "DESCRICAO", "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA"]
 tabela.create_csv(columns=colunas)
 
 # ESTADOS
 tabela = TableModel("Estados")
-colunas = ["COD", "NOME", "DESCRICAO", "EFEITO"]
+colunas = ["COD", "NOME", "DESCRICAO", "EFEITO", "DURACAO"]
 tabela.create_csv(columns=colunas)
 
 # ITENS
 tabela = TableModel("Itens")
-colunas = ["COD", "NOME", "DESCRICAO", "EFEITO_+_0", "EFEITO_+_1", "EFEITO_+_2", "EFEITO_+_3"]
+colunas = ["COD", "NOME", "DESCRICAO", "DURACAO", "EFEITO_+_0", "EFEITO_+_1", "EFEITO_+_2", "EFEITO_+_3"]
 tabela.create_csv(columns=colunas)
 
 # BOLSAS
@@ -72,4 +72,29 @@ tabela.create_csv(columns=colunas)
 # Reinos
 tabela = TableModel("Reinos")
 colunas = ["COD", "NOME"]
+tabela.create_csv(columns=colunas)
+
+# Habilidades das classes
+tabela = TableModel("H_Classes")
+colunas = ["COD", "COD_CLASSE", "NOME", "DESCRICAO", "EFEITO", "DANO_FISICO", "DANO_ESPECIAL", "ESTADO", "COOLDOWN"]
+tabela.create_csv(columns=colunas)
+
+# Equipamentos 
+tabela = TableModel("Equipamentos")
+colunas = ["COD", "NOME", "BUFF"]
+tabela.create_csv(columns=colunas)
+
+# Habilidades de raça
+tabela = TableModel("H_raca")
+colunas = ["COD", "COD_RACA", "NOME", "BUFF", "DURACAO"]
+tabela.create_csv(columns=colunas)
+
+# Cidades
+tabela = TableModel("Cidades")
+colunas = ["COD", "COD_REINO", "NOME"]
+tabela.create_csv(columns=colunas)
+
+# Localdades
+tabela = TableModel("Localidades")
+colunas = ["COD", "COD_REINO", "COD_CIDADE", "NOME"] 
 tabela.create_csv(columns=colunas)
