@@ -5,7 +5,7 @@ from table_model import TableModel
 # PERSONAGENS
 tabela = TableModel("Personagens")
 colunas = ["COD", "NOME","GENERO", "RACA", "CLASSE", "LEVEL", "ESTADO", "VIDA_T","VIDA_A", "MANA_T", "MANA_A", "VIGOR_T", "VIGOR_A", "DANO_FISICO", "DANO_ESPECIAL", "DEFESA", "DEFESA_ESPECIAL", "CHANCE_ESQUIVA",
-           "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA", "COD_REINO", "NPC"]
+           "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA", "COD_REINO", "COD_CIDADE", "COD_LOCALIZACAO", "NPC"]
 tabela.create_csv(columns=colunas)
 
 # RAÇAS 25 PONTOS DIVIDOS ENTRE OS ATRIBUTOS
