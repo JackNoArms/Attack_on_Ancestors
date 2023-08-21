@@ -94,7 +94,7 @@ tabela = TableModel("Cidades")
 colunas = ["COD", "COD_REINO", "NOME"]
 tabela.create_csv(columns=colunas)
 
-# Localdades
+# Localidades
 tabela = TableModel("Localidades")
 colunas = ["COD", "COD_REINO", "COD_CIDADE", "NOME"] 
 tabela.create_csv(columns=colunas)
