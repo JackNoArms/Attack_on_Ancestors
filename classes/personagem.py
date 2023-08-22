@@ -206,3 +206,36 @@ class Personagem:
     @inteligencia.setter
     def inteligencia(self, valor):
         self.inteligencia = valor
+    
+    @property
+    def cod_reino(self):
+        return self.cod_reino
+    
+    @cod_reino.setter
+    def cod_reino(self, valor):
+        self.cod_reino = valor
+    
+    @property
+    def cod_cidade(self):
+        return self.cod_cidade
+
+    @cod_cidade.setter
+    def cod_cidade(self, valor):
+        self.cod_cidade = valor
+    
+    @property
+    def cod_localidade(self):
+        return self.cod_localidade
+    
+    @cod_localidade.setter
+    def cod_localidade(self, valor):
+        self.cod_localidade = valor
+    
+    @property
+    def npc(self):
+        return self.npc
+    
+    @npc.setter
+    def npc(self, valor):
+        self.npc = valor
+    
