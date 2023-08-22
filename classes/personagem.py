@@ -238,4 +238,3 @@ class Personagem:
     @npc.setter
     def npc(self, valor):
         self.npc = valor
-    
