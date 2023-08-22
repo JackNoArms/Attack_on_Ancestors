@@ -1,6 +1,1 @@
 COD,NOME,DESCRICAO,EFEITO,PROFICIENCIA
-1,FORCA,Mede a força física do personagem.,Aumenta o dano físico causado.,6
-2,DESTREZA,Mede a agilidade e coordenação motora do personagem.,Aumenta a chance de acerto e esquiva.,8
-3,CONSTITUICAO,Mede a resistência física e vitalidade do personagem.,Aumenta os pontos de vida e resistência.,7
-4,CARISMA,Mede o poder de persuasão e liderança do personagem.,Aumenta a eficácia de habilidades sociais.,5
-5,INTELIGENCIA,Mede a capacidade de raciocínio e conhecimento do personagem.,Aumenta o dano mágico e a eficácia de habilidades intelectuais.,4

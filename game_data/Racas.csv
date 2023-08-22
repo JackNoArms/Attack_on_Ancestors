@@ -1,6 +1,1 @@
-COD,NOME,DESCRICAO,HABILIDADES
-1,Humano,Versátil e adaptável.,Perícia em várias habilidades
-2,Elfo,Elegantes e ágeis.,"Visão no escuro, habilidades mágicas"
-3,Anão,Resistentes e engenhosos.,"Resistência a veneno, habilidades de engenharia"
-4,Orc,Fortes e brutais.,Bônus em Força e habilidades de combate
-5,Goblin,Pequenos e astutos.,Habilidades de furtividade e sabotagem
+COD,NOME,DESCRICAO,FORCA,DESTREZA,CONSTITUICAO,CARISMA,INTELIGENCIA

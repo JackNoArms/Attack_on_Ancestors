@@ -15,53 +15,53 @@ def load_reinos(data_model):
 
 def load_personagens(data_model):
     dados_personagens = [
-        ["1", "Lucas", "Humano", "Guerreiro", "10", "Normal", "100", "100", "50", "50", "60", "60", "20", "15", "30", "25", "15", "18", "12", "14", "10", "8", "2", "0"],
-        ["2", "Victor", "Elfo", "Mago", "8", "Envenenado", "80", "70", "80", "40", "50", "40", "10", "25", "20", "30", "20", "12", "16", "10", "18", "15", "1", "0"],
-        ["3", "Mateus", "Anão", "Cavaleiro", "12", "Normal", "120", "90", "30", "10", "70", "50", "25", "10", "45", "35", "10", "16", "14", "14", "8", "10", "3", "0"],
-        ["4", "Stanley", "Orc", "Bárbaro", "6", "Normal", "80", "80", "0", "0", "80", "80", "30", "10", "40", "20", "5", "20", "15", "16", "6", "6", "4", "0"],
-        ["5", "Elena", "Elfo", "Arqueiro", "9", "Normal", "90", "90", "60", "50", "40", "40", "15", "10", "25", "30", "25", "14", "18", "12", "12", "10", "5","0"],
-        ["6", "NPC1", "Humano", "Guerreiro", "15", "Normal", "80", "80", "50", "50", "60", "60", "10", "10", "20", "20", "10", "12", "12", "10", "8", "8", "9", "1"],
-        ["7", "NPC2", "Elfo", "Arqueiro", "18", "Normal", "100", "100", "60", "60", "70", "70", "15", "15", "25", "25", "20", "14", "14", "12", "10", "10", "5", "1"]
+        ["1", "Lucas", "M", "Humano", "Guerreiro", "10", "Normal", "100", "100", "50", "50", "60", "60", "20", "15", "30", "25", "15", "18", "12", "14", "10", "8", "2", "0"],
+        ["2", "Victor", "M", "Elfo", "Mago", "8", "Envenenado", "80", "70", "80", "40", "50", "40", "10", "25", "20", "30", "20", "12", "16", "10", "18", "15", "1", "0"],
+        ["3", "Mateus", "M", "Anão", "Cavaleiro", "12", "Normal", "120", "90", "30", "10", "70", "50", "25", "10", "45", "35", "10", "16", "14", "14", "8", "10", "3", "0"],
+        ["4", "Stanley", "M", "Orc", "Bárbaro", "6", "Normal", "80", "80", "0", "0", "80", "80", "30", "10", "40", "20", "5", "20", "15", "16", "6", "6", "4", "0"],
+        ["5", "Elena", "F", "Elfo", "Arqueiro", "9", "Normal", "90", "90", "60", "50", "40", "40", "15", "10", "25", "30", "25", "14", "18", "12", "12", "10", "5","0"],
+        ["6", "NPC1", "F", "Humano", "Guerreiro", "15", "Normal", "80", "80", "50", "50", "60", "60", "10", "10", "20", "20", "10", "12", "12", "10", "8", "8", "9", "1"],
+        ["7", "NPC2", "F", "Elfo", "Arqueiro", "18", "Normal", "100", "100", "60", "60", "70", "70", "15", "15", "25", "25", "20", "14", "14", "12", "10", "10", "5", "1"]
     ]
     data_model.add_data(dados_personagens)
 
 def load_racas(data_model):
     dados_racas = [
-        ["1", "Humano", "Versátil e adaptável.", "Perícia em várias habilidades"],
-        ["2", "Elfo", "Elegantes e ágeis.", "Visão no escuro, habilidades mágicas"],
-        ["3", "Anão", "Resistentes e engenhosos.", "Resistência a veneno, habilidades de engenharia"],
-        ["4", "Orc", "Fortes e brutais.", "Bônus em Força e habilidades de combate"],
-        ["5", "Goblin", "Pequenos e astutos.", "Habilidades de furtividade e sabotagem"]
+        ["1", "Humano", "Versátil e adaptável.", "5", "5", "5", "5", "5"],
+        ["2", "Elfo", "Elegantes e ágeis.", "2", "7", "4", "7", "5"],
+        ["3", "Anão", "Resistentes e engenhosos.", "7", "3", "7", "2", "6"],
+        ["4", "Orc", "Fortes e brutais.", "9", "4", "9", "1", "2"],
+        ["5", "Goblin", "Pequenos e astutos.", "1", "10", "2", "2", "10"]
     ]
     data_model.add_data(dados_racas)
 
 def load_classes(data_model):
     dados_classes = [
-        ["1", "Guerreiro", "Mestre das armas e da batalha.", "Habilidades de combate corpo a corpo"],
-        ["2", "Mago", "Manipulador de magia arcan", "Habilidades mágicas poderosas"],
-        ["3", "Cavaleiro", "Protetor implacável.", "Habilidades defensivas e de montaria"],
-        ["4", "Bárbaro", "Força bruta e fúria.", "Habilidades de combate frenético"],
-        ["5", "Arqueiro", "Mestre do arco e flecha.", "Habilidades de ataque à distância"]
+        ["1", "Guerreiro", "Mestre das armas e da batalha.", "1", "1", "2", "1", "1"],
+        ["2", "Mago", "Manipulador de magia arcan", "0", "0", "1", "2", "3"],
+        ["3", "Cavaleiro", "Protetor implacável.", "1", "0", "5", "0", "0"],
+        ["4", "Bárbaro", "Força bruta e fúria.", "3", "1", "2", "0", "0"],
+        ["5", "Arqueiro", "Mestre do arco e flecha.", "0", "3", "0", "3", "0"]
     ]
     data_model.add_data(dados_classes)
 
 def load_estados(data_model):
     dados_estados = [
-        ["1", "Normal", "Estado padrão do personagem.", "Nenhum efeito especial"],
-        ["2", "Envenenado", "Envenenamento afetando o personagem.", "Perda gradual de vida"],
-        ["3", "Atordoado", "Personagem atordoado e incapaz de agir.", "Incapacidade de ações por um turno"],
-        ["4", "Enraizado", "Personagem preso no lugar.", "Incapacidade de se mover por um turno"],
-        ["5", "Confuso", "Personagem confuso e desorientado.", "Ações imprevisíveis"]
+        ["1", "Normal", "Estado padrão do personagem.", "Nenhum efeito especial", "2"],
+        ["2", "Envenenado", "Envenenamento afetando o personagem.", "Perda gradual de vida", "2"],
+        ["3", "Atordoado", "Personagem atordoado e incapaz de agir.", "Incapacidade de ações por um turno", "2"],
+        ["4", "Enraizado", "Personagem preso no lugar.", "Incapacidade de se mover por um turno", "2"],
+        ["5", "Confuso", "Personagem confuso e desorientado.", "Ações imprevisíveis", "2"]
     ]
     data_model.add_data(dados_estados)
 
 def load_itens(data_model):
     dados_itens = [
-        ["1", "Poção de Cura", "Uma poção capaz de restaurar vida do alvo", "10", "15", "20", "25"],
-        ["2", "Poção de Mana", "Uma poção capaz de restaurar mana do alvo", "10", "15", "20", "25"],
-        ["3", "Poção de Vigor", "Uma poção capaz de restaurar vigor do alvo", "10", "15", "20", "25"],
-        ["4", "Poção de Força", "Uma poção capaz de aumentar temporariamente a força do alvo", "2", "3", "4", "5"],
-        ["5", "Poção de Agilidade", "Uma poção capaz de aumentar temporariamente a Agilidade do alvo", "2", "3", "4", "5"]
+        ["1", "Poção de Cura", "Uma poção capaz de restaurar vida do alvo","2", "10", "15", "20", "25"],
+        ["2", "Poção de Mana", "Uma poção capaz de restaurar mana do alvo", "2","10", "15", "20", "25"],
+        ["3", "Poção de Vigor", "Uma poção capaz de restaurar vigor do alvo", "2", "10", "15", "20", "25"],
+        ["4", "Poção de Força", "Uma poção capaz de aumentar temporariamente a força do alvo", "2", "2", "3", "4", "5"],
+        ["5", "Poção de Agilidade", "Uma poção capaz de aumentar temporariamente a Destreza do alvo","2", "2", "3", "4", "5"]
     ]
     data_model.add_data(dados_itens)
 
