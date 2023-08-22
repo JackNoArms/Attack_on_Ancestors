@@ -65,7 +65,7 @@ tabela.create_csv(columns=colunas)
 tabela = TableModel("Frases_Npc")
 # A coluna FUNCAO definiria o que o NPC faz, ex:Vendedor, Mentor(Dá missão)
 # A coluna NATUREZA define se o NPC gostará de personagens que tem mais ações ruins, boas ou neutras.
-colunas = ["COD", "COD_PERSONAGEM", "FRASES", "TP_ACAO", "FUNCAO", "NATUREZA", "COD_REINO"]
+colunas = ["COD", "COD_PERSONAGEM", "FRASES", "TP_ACAO", "FUNCAO", "NATUREZA", "COD_REINO", "COD_CIDADE", "COD_LOCALIDADE"]
 tabela.create_csv(columns=colunas)
 
 # Reinos
