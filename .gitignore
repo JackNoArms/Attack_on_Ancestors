@@ -5,7 +5,7 @@ __pycache__/
 *.pyd
 
 # Ambiente virtual
-Attack on Ancestors/
+venv/
 
 # Classes de Teste
 test_*
