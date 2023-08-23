@@ -2,66 +2,66 @@ from csv_scripts.data_model import DataModel
 
 class Raca:
     def __init__(self, nome, descricao, forca, destreza, constituicao, carisma, inteligencia):
-        self.nome = nome
-        self.descricao = descricao
-        self.forca = forca
-        self.destreza = destreza
-        self.constituicao = constituicao
-        self.carisma = carisma
-        self.inteligencia = inteligencia
+        self._nome = nome
+        self._descricao = descricao
+        self._forca = forca
+        self._destreza = destreza
+        self._constituicao = constituicao
+        self._carisma = carisma
+        self._inteligencia = inteligencia
     
     @property
     def nome(self):
-        return self.nome
+        return self._nome
 
     @nome.setter
     def nome(self, valor):
-        self.nome = valor
+        self._nome = valor
 
     @property
     def descricao(self):
-        return self.descricao
+        return self._descricao
     
     @descricao.setter
     def descricao(self, valor):
-        self.descricao = valor
+        self._descricao = valor
 
     @property
     def forca(self):
-        return self.forca
+        return self._forca
     
     @forca.setter
     def forca(self, valor):
-        self.forca = valor
+        self._forca = valor
     
     @property
     def destreza(self):
-        return self.destreza
+        return self._destreza
     
     @destreza.setter
     def destreza(self, valor):
-        self.destreza = valor
+        self._destreza = valor
     
     @property
     def constituicao(self):
-        return self.constituicao
+        return self._constituicao
     
     @constituicao.setter
     def constituicao(self, valor):
-        self.constituicao = valor
+        self._constituicao = valor
     
     @property
     def carisma(self):
-        return self.carisma
+        return self._carisma
     
     @carisma.setter
     def carisma(self, valor):
-        self.carisma = valor
+        self._carisma = valor
     
     @property
     def inteligencia(self):
-        return self.inteligencia
+        return self._inteligencia
 
     @inteligencia.setter
     def inteligencia(self, valor):
-        self.inteligencia = valor
+        self._inteligencia = valor

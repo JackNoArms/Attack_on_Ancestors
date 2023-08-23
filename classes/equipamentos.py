@@ -2,23 +2,23 @@ from csv_scripts.data_model import DataModel
 
 class Equipamentos:
     def __init__(self, nome, buff):
-        self.nome = nome
-        self.buff = buff
+        self._nome = nome
+        self._buff = buff
 
     @property
     def nome(self):
-        return self.nome
+        return self._nome
     
     @nome.setter
     def nome(self, valor):
-        self.nome = valor
+        self._nome = valor
 
     @property
     def buff(self):
-        return self.buff
+        return self._buff
     
     @buff.setter
     def buff(self, valor):
-        self.buff = valor
+        self._buff = valor
 
     
