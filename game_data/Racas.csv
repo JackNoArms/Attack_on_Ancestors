@@ -1,1 +1,6 @@
 COD,NOME,DESCRICAO,FORCA,DESTREZA,CONSTITUICAO,CARISMA,INTELIGENCIA
+1,Humano,Versátil e adaptável.,5,5,5,5,5
+2,Elfo,Elegantes e ágeis.,2,7,4,7,5
+3,Anão,Resistentes e engenhosos.,7,3,7,2,6
+4,Orc,Fortes e brutais.,9,4,9,1,2
+5,Goblin,Pequenos e astutos.,1,10,2,2,10
