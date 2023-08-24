@@ -78,7 +78,13 @@ class Character_manager:
                 print(lista_racas)
                 raca = input("Escolha a sua raça?\nComando: ")
                 if raca in lista_racas:
+                    raca_info = df_raca[df_raca["NOME"] == raca].iloc[0]
                     df.loc[df["NOME"] == self.nome_personagem, "RACA"] = raca
+                    df.loc[df["NOME"] == self.nome_personagem, "FORCA"] = raca_info["FORCA"]
+                    df.loc[df["NOME"] == self.nome_personagem, "DESTREZA"] = raca_info["DESTREZA"]
+                    df.loc[df["NOME"] == self.nome_personagem, "CONSTITUICAO"] = raca_info["CONSTITUICAO"]
+                    df.loc[df["NOME"] == self.nome_personagem, "CARISMA"] = raca_info["CARISMA"]
+                    df.loc[df["NOME"] == self.nome_personagem, "INTELIGENCIA"] = raca_info["INTELIGENCIA"]
                     df.to_csv("game_data/Personagens.csv", index=False)
                     print(f"A Raça selecionada é '{raca}'")
                     break
@@ -99,6 +105,14 @@ class Character_manager:
                 classe = input("Escolha a sua classe?\nComando: ")
                 if classe in lista_classes:
                     df.loc[df["NOME"] == self.nome_personagem, "CLASSE"] = classe
+                    personagem_info = df[df["NOME"] == self.nome_personagem].iloc[0]
+                    classe_info = df_classe[df_classe["NOME"] == classe].iloc[0]
+                    df.loc[df["NOME"] == self.nome_personagem, "RACA"] = classe
+                    df.loc[df["NOME"] == self.nome_personagem, "FORCA"] = personagem_info["FORCA"] + classe_info["FORCA"]
+                    df.loc[df["NOME"] == self.nome_personagem, "DESTREZA"] = personagem_info["DESTREZA"] + classe_info["DESTREZA"]
+                    df.loc[df["NOME"] == self.nome_personagem, "CONSTITUICAO"] = personagem_info["CONSTITUICAO"] + classe_info["CONSTITUICAO"]
+                    df.loc[df["NOME"] == self.nome_personagem, "CARISMA"] = personagem_info["CARISMA"] + classe_info["CARISMA"]
+                    df.loc[df["NOME"] == self.nome_personagem, "INTELIGENCIA"] = personagem_info["INTELIGENCIA"] + classe_info["INTELIGENCIA"]
                     df.to_csv("game_data/Personagens.csv", index=False)
                     print(f"A Raça selecionada é '{classe}'")
                     break
@@ -107,6 +121,15 @@ class Character_manager:
         else:
             print(f"Personagem '{self.nome_personagem}' não encontrado.")
 
+    def attribute_modifiers(self):
+        df = pd.read_csv("game_data/Personagens.csv")
+        personagem_info = df[df["NOME"] == self.nome_personagem].iloc[0]
+        df.loc[df["NOME"] == self.nome_personagem, "DANO_FISICO"] = float(personagem_info["FORCA"] * 1.5)
+        df.loc[df["NOME"] == self.nome_personagem, "DANO_ESPECIAL"] = float(personagem_info["FORCA"] * 1.5)
+        df.loc[df["NOME"] == self.nome_personagem, "CHANCE_ESQUIVA"] = float(personagem_info["DESTREZA"] * 0.7)
+        df.loc[df["NOME"] == self.nome_personagem, "MANA"] = float(personagem_info["CONSTITUICAO"] * 10)
+        df.loc[df["NOME"] == self.nome_personagem, "CARISMA"] = personagem_info["CARISMA"] + classe_info["CARISMA"]
+        df.loc[df["NOME"] == self.nome_personagem, "INTELIGENCIA"] = personagem_info["INTELIGENCIA"] + classe_info["INTELIGENCIA"]
 
 
 if __name__ == "__main__":
