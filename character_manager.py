@@ -16,7 +16,10 @@ class Character_manager:
         os.system("cls")
         if comando == "1":
             self.character_create()
-            self.modify_race()
+            self.select_gender()
+            self.select_race()
+            self.select_class()
+
 
         elif comando == "2":
             self.jogando = False
@@ -39,13 +42,39 @@ class Character_manager:
                 df_nome.to_csv("game_data/Personagens.csv", index=False)
                 break
     
-    def modify_race(self):
+    def select_gender(self):
+        df = pd.read_csv("game_data/Personagens.csv")
+        self.nome_personagem
+        if self.nome_personagem in df["NOME"].values:
+            while True:
+                print("1) Masculino\n2) Feminino")
+                genero = input("Qual o seu genero?\nComando: ")
+                if genero == "1":
+                    os.system("cls")
+                    df.loc[df["NOME"] == self.nome_personagem, "GENERO"] = "Masculino"
+                    print(f"O Genero selecionado foi 'Masculino'")
+                    break
+                elif genero == "2":
+                    os.system("cls")
+                    df.loc[df["NOME"] == self.nome_personagem, "GENERO"] = "Feminino"
+                    print(f"O Genero selecionado foi 'Feminino'")
+                    break
+                else:
+                    os.system("cls")
+                    print(f"Gênero '{genero}' não encontrado.")
+
+            df.to_csv("game_data/Personagens.csv", index=False)
+        else:
+            print(f"Personagem '{self.nome_personagem}' não encontrado.")
+    
+    def select_race(self):
         df = pd.read_csv("game_data/Personagens.csv")
         self.nome_personagem
         if self.nome_personagem in df["NOME"].values:
             df_raca = pd.read_csv("game_data/Racas.csv")
             lista_racas = list(df_raca["NOME"])
             while True:
+                os.system("cls")
                 print(lista_racas)
                 raca = input("Escolha a sua raça?\nComando: ")
                 if raca in lista_racas:
@@ -57,6 +86,28 @@ class Character_manager:
                     print(f"Raça '{raca}' não encontrada na lista de raças disponíveis.")
         else:
             print(f"Personagem '{self.nome_personagem}' não encontrado.")
+
+    def select_class(self):
+        df = pd.read_csv("game_data/Personagens.csv")
+        self.nome_personagem
+        if self.nome_personagem in df["NOME"].values:
+            df_classe = pd.read_csv("game_data/Classes.csv")
+            lista_classes = list(df_classe["NOME"])
+            while True:
+                os.system("cls")
+                print(lista_classes)
+                classe = input("Escolha a sua classe?\nComando: ")
+                if classe in lista_classes:
+                    df.loc[df["NOME"] == self.nome_personagem, "CLASSE"] = classe
+                    df.to_csv("game_data/Personagens.csv", index=False)
+                    print(f"A Raça selecionada é '{classe}'")
+                    break
+                else:
+                    print(f"Classe '{classe}' não encontrada na lista de raças disponíveis.")
+        else:
+            print(f"Personagem '{self.nome_personagem}' não encontrado.")
+
+
 
 if __name__ == "__main__":
     jogo = Character_manager()
