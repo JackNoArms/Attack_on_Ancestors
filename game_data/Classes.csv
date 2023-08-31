@@ -1,6 +1,1 @@
-COD,NOME,DESCRICAO,FORCA,DESTREZA,CONSTITUICAO,CARISMA,INTELIGENCIA
-1,Guerreiro,Mestre das armas e da batalha.,1,1,2,1,1
-2,Mago,Manipulador de magia arcan,0,0,1,2,3
-3,Cavaleiro,Protetor implacável.,1,0,5,0,0
-4,Bárbaro,Força bruta e fúria.,3,1,2,0,0
-5,Arqueiro,Mestre do arco e flecha.,0,3,0,3,0
+COD,NOME,DESCRICAO,FORCA,DESTREZA,CONSTITUICAO,CARISMA,INTELIGENCIA,CLASSE_S

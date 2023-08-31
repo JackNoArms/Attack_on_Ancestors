@@ -1,7 +1,7 @@
 from table_model import TableModel
 from data_model import DataModel
 
-tabela = TableModel("personagem.csv")
+tabela = TableModel("personagem")
 colunas = ["COD", "NOME", "VIDA"]
 tabela.create_csv(columns=colunas)
 

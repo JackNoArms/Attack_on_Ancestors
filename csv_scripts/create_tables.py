@@ -2,10 +2,15 @@ from data_model import DataModel
 from table_model import TableModel
 
 
+# USUARIOS
+tabela = TableModel("Usuarios")
+colunas = ["COD", "USUARIO", "SENHA", "EMAIL"]
+tabela.create_csv(columns=colunas)
+
 # PERSONAGENS
 tabela = TableModel("Personagens")
 colunas = ["COD", "NOME","GENERO", "RACA", "CLASSE", "LEVEL", "ESTADO", "VIDA_T","VIDA_A", "MANA_T", "MANA_A", "VIGOR_T", "VIGOR_A", "DANO_FISICO", "DANO_ESPECIAL", "DEFESA", "DEFESA_ESPECIAL", "CHANCE_ESQUIVA",
-           "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA", "COD_REINO", "COD_CIDADE", "COD_LOCALIDADE", "NPC"]
+           "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA", "CHANCE_ACERTO", "CHANCE_N_FOCO", "COD_REINO", "COD_CIDADE", "COD_LOCALIDADE", "NPC"]
 tabela.create_csv(columns=colunas)
 
 # RAÇAS 25 PONTOS DIVIDOS ENTRE OS ATRIBUTOS
@@ -15,7 +20,7 @@ tabela.create_csv(columns=colunas)
 
 # CLASSES 6 PONTOS DIVIDIDOS ENTRE OS ATRIBUTOS
 tabela = TableModel("Classes")
-colunas = ["COD", "NOME", "DESCRICAO", "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA"]
+colunas = ["COD", "NOME", "DESCRICAO", "FORCA", "DESTREZA", "CONSTITUICAO", "CARISMA", "INTELIGENCIA", "CLASSE_S"]
 tabela.create_csv(columns=colunas)
 
 # ESTADOS

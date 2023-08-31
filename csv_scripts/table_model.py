@@ -24,7 +24,7 @@ class TableModel:
             columns (list): Uma lista de strings representando as colunas do CSV.
         """
         original_directory = os.getcwd()
-        game_data_directory = os.path.join(original_directory, "game_data")
+        game_data_directory = os.path.join(original_directory, "Attack_on_Ancestors/game_data")
 
         if not os.path.exists(game_data_directory):
             os.makedirs(game_data_directory)

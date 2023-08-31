@@ -14,17 +14,18 @@ class Character_manager:
     
     def processar_comando(self, comando):
         os.system("cls")
+        current_directory = os.getcwd()
+        print("Diretório Atual:", current_directory)
         if comando == "1":
             self.character_create()
             self.select_gender()
             self.select_race()
             self.select_class()
-
+            self.attribute_modifiers()
 
         elif comando == "2":
             self.jogando = False
             print("Saindo do jogo...")
-
         else:
             print(f"Comando '{comando}' não é válido.")
     
@@ -107,7 +108,6 @@ class Character_manager:
                     df.loc[df["NOME"] == self.nome_personagem, "CLASSE"] = classe
                     personagem_info = df[df["NOME"] == self.nome_personagem].iloc[0]
                     classe_info = df_classe[df_classe["NOME"] == classe].iloc[0]
-                    df.loc[df["NOME"] == self.nome_personagem, "RACA"] = classe
                     df.loc[df["NOME"] == self.nome_personagem, "FORCA"] = personagem_info["FORCA"] + classe_info["FORCA"]
                     df.loc[df["NOME"] == self.nome_personagem, "DESTREZA"] = personagem_info["DESTREZA"] + classe_info["DESTREZA"]
                     df.loc[df["NOME"] == self.nome_personagem, "CONSTITUICAO"] = personagem_info["CONSTITUICAO"] + classe_info["CONSTITUICAO"]
@@ -124,12 +124,23 @@ class Character_manager:
     def attribute_modifiers(self):
         df = pd.read_csv("game_data/Personagens.csv")
         personagem_info = df[df["NOME"] == self.nome_personagem].iloc[0]
+    
         df.loc[df["NOME"] == self.nome_personagem, "DANO_FISICO"] = float(personagem_info["FORCA"] * 1.5)
-        df.loc[df["NOME"] == self.nome_personagem, "DANO_ESPECIAL"] = float(personagem_info["FORCA"] * 1.5)
+        df.loc[df["NOME"] == self.nome_personagem, "DANO_ESPECIAL"] = float(personagem_info["INTELIGENCIA"] * 1.7)
+        df.loc[df["NOME"] == self.nome_personagem, "MANA_T"] = float(personagem_info["INTELIGENCIA"] * 10)
+        df.loc[df["NOME"] == self.nome_personagem, "MANA_A"] = df.loc[df["NOME"] == self.nome_personagem, "MANA_T"]
         df.loc[df["NOME"] == self.nome_personagem, "CHANCE_ESQUIVA"] = float(personagem_info["DESTREZA"] * 0.7)
-        df.loc[df["NOME"] == self.nome_personagem, "MANA"] = float(personagem_info["CONSTITUICAO"] * 10)
-        df.loc[df["NOME"] == self.nome_personagem, "CARISMA"] = personagem_info["CARISMA"] + classe_info["CARISMA"]
-        df.loc[df["NOME"] == self.nome_personagem, "INTELIGENCIA"] = personagem_info["INTELIGENCIA"] + classe_info["INTELIGENCIA"]
+        df.loc[df["NOME"] == self.nome_personagem, "CHANCE_ACERTO"] = float(personagem_info["DESTREZA"] * 0.5)
+        df.loc[df["NOME"] == self.nome_personagem, "VIDA_T"] = float(personagem_info["CONSTITUICAO"] * 10)
+        df.loc[df["NOME"] == self.nome_personagem, "DEFESA"] = float(personagem_info["CONSTITUICAO"] * 1)
+        df.loc[df["NOME"] == self.nome_personagem, "DEFESA_ESPECIAL"] = float(personagem_info["CONSTITUICAO"] * 1)
+        df.loc[df["NOME"] == self.nome_personagem, "VIDA_A"] = df.loc[df["NOME"] == self.nome_personagem, "VIDA_T"]
+        df.loc[df["NOME"] == self.nome_personagem, "VIGOR_T"] = float((personagem_info["DESTREZA"] * 5) + (personagem_info["CONSTITUICAO"] * 5))
+        df.loc[df["NOME"] == self.nome_personagem, "VIGOR_A"] = df.loc[df["NOME"] == self.nome_personagem, "VIGOR_T"]
+        df.loc[df["NOME"] == self.nome_personagem, "CHANCE_N_FOCO"] = float(personagem_info["CARISMA"] * 0.7)
+        df.loc[df["NOME"] == self.nome_personagem, "LEVEL"] = 1
+        df.loc[df["NOME"] == self.nome_personagem, "ESTADO"] = "Normal"
+        df.to_csv("game_data/Personagens.csv", index=False)
 
 
 if __name__ == "__main__":

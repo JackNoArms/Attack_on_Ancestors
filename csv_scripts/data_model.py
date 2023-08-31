@@ -1,7 +1,6 @@
 import pandas as pd
-from table_model import TableModel
 import os
-import csv
+from table_model import TableModel
 
 class DataModel:
     """
@@ -11,19 +10,9 @@ class DataModel:
         archive_name (str): O nome do arquivo CSV a ser manipulado.
 
     Methods:
-        add_data(data: list) -> pd.DataFrame:
-            Adiciona uma lista de dados como nova linha ao arquivo CSV.
-        
-        show_data() -> None:
-            Lê e imprime os dados do arquivo CSV.
-        
-        delete_data(n_cod: int) -> pd.DataFrame:
-            Remove a linha correspondente ao 'n_cod' do arquivo CSV e reorganiza os códigos.
-
-        modify_data(n_cod: int, column=None, data=None) -> None:
-            Modifica os dados em uma linha específica do arquivo CSV.
+        # Restante do seu código...
     """
-    def __init__(self, archive_name: csv):
+    def __init__(self, archive_name: str):
         """
         Inicializa uma nova instância da classe DataModel.
 
@@ -31,8 +20,8 @@ class DataModel:
             archive_name (str): O nome do arquivo CSV a ser manipulado.
         """
         self.archive_name = archive_name
-        game_data_path = os.path.join(os.getcwd(), "game_data")  # Obtém o caminho completo da pasta "game_data"
-        self.archive_name = os.path.join(game_data_path, archive_name)  # Junta o caminho completo com o nome do arquivo CSV
+        self.archive_path = os.path.join("game_data", archive_name)
+        self.table_model = TableModel(archive_name)  # Cria uma instância de TableModel
     
     def add_data(self, data: list) -> pd.DataFrame:
         """
@@ -44,18 +33,17 @@ class DataModel:
         Returns:
             pd.DataFrame: O DataFrame atualizado após a adição dos dados.
         """
-        archive_name = self.archive_name
-        df = pd.read_csv(archive_name)
+        df = pd.read_csv(self.archive_path)
         new_df = pd.DataFrame(data, columns=df.columns)
         df = pd.concat([df, new_df], ignore_index=True)
-        df.to_csv(archive_name, index=False)
+        df.to_csv(self.archive_path, index=False)
         return df
     
     def show_data(self):
         """
         Lê e imprime os dados do arquivo CSV.
         """
-        df = pd.read_csv(self.archive_name)
+        df = pd.read_csv(self.archive_path)
         return df
     
     def delete_data(self, n_cod: int):
@@ -68,11 +56,11 @@ class DataModel:
         Returns:
             Retorna um arquivo CSV.
         """
-        df = pd.read_csv(self.archive_name)
+        df = pd.read_csv(self.archive_path)
         df = df[df['COD'] != n_cod]
         df = df.reset_index(drop=True)
         df['COD'] = range(1, len(df) + 1)
-        df.to_csv(self.archive_name, index=False)
+        df.to_csv(self.archive_path, index=False)
         return df
 
     def modify_data(self, n_cod: int, column=None, data=None) -> None:
@@ -84,7 +72,7 @@ class DataModel:
             column (str, optional): O nome da coluna a ser modificada. Padrão é None.
             data (Any, optional): Os novos dados a serem inseridos na linha ou célula. Padrão é None.
         """
-        df = pd.read_csv(self.archive_name)
+        df = pd.read_csv(self.archive_path)
 
         if n_cod is None:
             raise ValueError("O parâmetro 'n_cod' deve conter um valor.")
@@ -103,4 +91,4 @@ class DataModel:
         else:
             df.loc[df['COD'] == n_cod, column] = data
         
-        df.to_csv(self.archive_name, index=False)
+        df.to_csv(self.archive_path, index=False)

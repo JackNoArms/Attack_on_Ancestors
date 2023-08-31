@@ -1,5 +1,6 @@
 import random
 import string
+import os
 from data_model import DataModel
 
 def load_reinos(data_model):    
@@ -15,14 +16,12 @@ def load_reinos(data_model):
 
 def load_personagens(data_model):
     dados_personagens = [
-        ["1", "Lucas", "M", "Humano", "Guerreiro", "10", "Normal", "100", "100", "50", "50", "60", "60", "20", "15", "30", "25", "15", "18", "12", "14", "10", "8", "2", "0"],
-        ["2", "Victor", "M", "Elfo", "Mago", "8", "Envenenado", "80", "70", "80", "40", "50", "40", "10", "25", "20", "30", "20", "12", "16", "10", "18", "15", "1", "0"],
-        ["3", "Mateus", "M", "Anão", "Cavaleiro", "12", "Normal", "120", "90", "30", "10", "70", "50", "25", "10", "45", "35", "10", "16", "14", "14", "8", "10", "3", "0"],
-        ["4", "Stanley", "M", "Orc", "Bárbaro", "6", "Normal", "80", "80", "0", "0", "80", "80", "30", "10", "40", "20", "5", "20", "15", "16", "6", "6", "4", "0"],
-        ["5", "Elena", "F", "Elfo", "Arqueiro", "9", "Normal", "90", "90", "60", "50", "40", "40", "15", "10", "25", "30", "25", "14", "18", "12", "12", "10", "5","0"],
-        ["6", "NPC1", "F", "Humano", "Guerreiro", "15", "Normal", "80", "80", "50", "50", "60", "60", "10", "10", "20", "20", "10", "12", "12", "10", "8", "8", "9", "1"],
-        ["7", "NPC2", "F", "Elfo", "Arqueiro", "18", "Normal", "100", "100", "60", "60", "70", "70", "15", "15", "25", "25", "20", "14", "14", "12", "10", "10", "5", "1"]
-    ]
+        ["1", "Personagem1", "Masculino", "Humano", "Guerreiro", "1", "Normal", "100", "100", "50", "50", "75", "75", "20", "30", "15", "20", "10", "25", "20", "15", "18", "22", "10", "5", "1", "1", "1", "0"],
+        ["2", "Personagem2", "Feminino", "Elfo", "Mago", "1", "Normal", "80", "80", "100", "100", "60", "60", "10", "50", "5", "10", "20", "10", "5", "5", "10", "25", "5", "0", "1", "1", "1", "0"],
+        ["3", "Personagem3", "Masculino", "Anão", "Guerreiro", "1", "Normal", "120", "120", "30", "30", "80", "80", "25", "15", "25", "15", "5", "30", "20", "25", "12", "18", "10", "3", "1", "1", "1", "0"],
+        ["4", "Personagem4", "Feminino", "Orc", "Ladino", "1", "Normal", "150", "150", "20", "20", "90", "90", "15", "40", "10", "15", "15", "20", "30", "10", "8", "10", "20", "1", "1", "1", "0"],
+        ["5", "Personagem5", "Masculino", "Goblin", "Arqueiro", "1", "Normal", "90", "90", "60", "60", "40", "40", "25", "30", "10", "20", "5", "15", "30", "15", "15", "20", "30", "1", "1", "1", "0"]
+]
     data_model.add_data(dados_personagens)
 
 def load_racas(data_model):
@@ -31,17 +30,44 @@ def load_racas(data_model):
         ["2", "Elfo", "Elegantes e ágeis.", "2", "7", "4", "7", "5"],
         ["3", "Anão", "Resistentes e engenhosos.", "7", "3", "7", "2", "6"],
         ["4", "Orc", "Fortes e brutais.", "9", "4", "9", "1", "2"],
-        ["5", "Goblin", "Pequenos e astutos.", "1", "10", "2", "2", "10"]
+        ["5", "Galoman", "Rápidos e ferozes.", "1", "10", "3", "7", "4"],
+        ["6", "Calangoman", "Répteis ágeis.", "1", "10", "5", "4", "5"],   
+        ["7", "Loboman", "Violentos e implacáveis.", "7", "8", "7", "0", "3"],        
+        ["8", "Tubarãoman", "Vorazes e agressivos.", "8", "7", "8", "0", "2"],    
+        ["9", "Stoneman", "Justos e pacíficos.", "1", "10", "0", "4", "10"]    
     ]
     data_model.add_data(dados_racas)
 
 def load_classes(data_model):
     dados_classes = [
         ["1", "Guerreiro", "Mestre das armas e da batalha.", "1", "1", "2", "1", "1"],
-        ["2", "Mago", "Manipulador de magia arcan", "0", "0", "1", "2", "3"],
-        ["3", "Cavaleiro", "Protetor implacável.", "1", "0", "5", "0", "0"],
-        ["4", "Bárbaro", "Força bruta e fúria.", "3", "1", "2", "0", "0"],
-        ["5", "Arqueiro", "Mestre do arco e flecha.", "0", "3", "0", "3", "0"]
+        ["2", "Especialista", "Detentor de habilidades especiais.", "0", "0", "1", "2", "3"],
+        ["3", "Bardo", "Usuário da arte musical.", "0", "0", "1", "3", "2"],
+        ["4", "Domador", "Pega emprestado o poder das feras.", "1", "2", "3", "0", "0"],
+        ["5", "Caçador", "Rastreador sagaz.", "2", "3", "1", "0", "0"],
+        ["6", "Pirata", "Mestre dos mares.", "2", "1", "3", "0", "0"],    
+        ["7", "Druída", "Protetor da natureza.", "0", "0", "2", "2", "2"],
+        ["8", "Baluarte", "É a personificação da defesa.", "1", "0", "5", "0", "0", "Guerreiro"],
+        ["9", "Beserker", "O significado de força.", "5", "0", "1", "0", "0", "Guerreiro"],
+        ["10", "Espada Especial", "Guerreiro versátil e poderoso.", "0", "0", "1", "0", "5", "Guerreiro"],
+        ["11", "Assassino", "Matador silencioso.", "1", "4", "1", "0", "0", "Caçador"],
+        ["12", "Arqueiro", "Mestre do arco e flecha.", "0", "4", "0", "2", "0", "Caçador"],
+        ["13", "Envenenador", "Sábio e letal.", "0", "3", "0", "0", "3", "Caçador"],
+        ["14", "Especialista Negro", "Arauto da destruição.", "0", "0", "1", "0", "5", "Especialista"],
+        ["15", "Especialista Branco", "Sábio e bondoso.", "0", "0", "0", "3", "3", "Especialista"],
+        ["16", "Especialista de Combate", "Gênio da arte do combate.", "2", "2", "0", "0", "2", "Especialista"],
+        ["17", "Maestro", "Regente musical.", "0", "0", "0", "3", "3", "Bardo"],
+        ["18", "Galante", "Sedutor e manipulador.", "0", "1", "0", "5", "0", "Bardo"],
+        ["19", "Metaleiro", "Devoto da arte do rock 'n roll.", "0", "3", "0", "3", "0", "Bardo"],
+        ["20", "Invocador", "Invocador de mitos.", "0", "0", "1", "5", "0", "Domador"],
+        ["21", "Treinador", "Adestrador de feras.", "0", "2", "1", "3", "0", "Domador"],
+        ["22", "Açogueiro", "Convocador de criaturas abatidas.", "3", "1", "0", "2", "0", "Domador"],
+        ["23", "Capitão", "Líder nato.", "1", "1", "0", "4", "0", "Pirata"],
+        ["24", "Terror dos Mares", "Símbolo do terror abissal.", "0", "0", "1", "0", "5", "Pirata"],
+        ["23", "Almirante", "Escudeiro dos mares.", "2", "0", "4", "0", "0", "Pirata"],
+        ["24", "Bestial", "Manifestação animalesca.", "2", "2", "2", "0", "0", "Druida"],
+        ["23", "Protetor", "Preservador da vida.", "0", "0", "2", "2", "2", "Druida"],
+        ["24", "Especialista Verde", "Manipulador de naturezas.", "0", "0", "0", "3", "3", "Druida"],
     ]
     data_model.add_data(dados_classes)
 
@@ -57,11 +83,11 @@ def load_estados(data_model):
 
 def load_itens(data_model):
     dados_itens = [
-        ["1", "Poção de Cura", "Uma poção capaz de restaurar vida do alvo","2", "10", "15", "20", "25"],
-        ["2", "Poção de Mana", "Uma poção capaz de restaurar mana do alvo", "2","10", "15", "20", "25"],
-        ["3", "Poção de Vigor", "Uma poção capaz de restaurar vigor do alvo", "2", "10", "15", "20", "25"],
-        ["4", "Poção de Força", "Uma poção capaz de aumentar temporariamente a força do alvo", "2", "2", "3", "4", "5"],
-        ["5", "Poção de Agilidade", "Uma poção capaz de aumentar temporariamente a Destreza do alvo","2", "2", "3", "4", "5"]
+        ["1", "Poção de Cura", "Uma poção capaz de restaurar vida do alvo","2", "10", "15"],
+        ["2", "Poção de Mana", "Uma poção capaz de restaurar mana do alvo", "2","10", "15"],
+        ["3", "Poção de Vigor", "Uma poção capaz de restaurar vigor do alvo", "2", "10", "15"],
+        ["4", "Poção de Força", "Uma poção capaz de aumentar temporariamente a força do alvo", "2", "2", "3"],
+        ["5", "Poção de Agilidade", "Uma poção capaz de aumentar temporariamente a Destreza do alvo","2", "2", "3"]
     ]
     data_model.add_data(dados_itens)
 
@@ -74,11 +100,12 @@ def load_bolsas(data_model, data_model_personagens, data_model_itens):
 
     for personagem in personagens_data:
         cod_personagem = personagem[0]
-        for _ in range(2):  # Adicionar 2 itens aleatórios para cada personagem
+        for i in range(2):  # Adicionar 2 itens aleatórios para cada personagem
+            cod = len(bolsas_data) + 1
             item_escolhido = random.choice(itens_data)
             cod_item = item_escolhido[0]
             quantidade = str(random.randint(1, 5))  # Quantidade aleatória entre 1 e 5
-            bolsas_data.append([cod_personagem, cod_item, quantidade])
+            bolsas_data.append([str(cod), cod_personagem, cod_item, quantidade])
 
     data_model.add_data(bolsas_data)
 
@@ -86,7 +113,31 @@ def generate_random_name():
     # Gerar um nome aleatório com 6 a 10 caracteres
     length = random.randint(6, 10)
     letters = string.ascii_letters
-    return ''.join(random.choice(letters) for _ in range(length))
+
+    # Lista de vogais
+    vowels = 'aeiouAEIOU'
+
+    name = ''
+    previous_is_consonant = False  # Flag para acompanhar se a última letra foi uma consoante
+
+    for _ in range(length):
+        # Escolher uma letra aleatória
+        letter = random.choice(letters)
+        
+        # Verificar se a letra é uma consoante
+        is_consonant = letter not in vowels
+        
+        if previous_is_consonant and is_consonant:
+            # Se a última letra foi uma consoante e a letra atual é uma consoante, adicionar uma vogal
+            name += random.choice(vowels)
+        
+        # Adicionar a letra ao nome
+        name += letter
+        
+        # Atualizar a flag
+        previous_is_consonant = is_consonant
+
+    return name
 
 def load_bestiario(data_model, data_model_reinos):
     bestiario_data = []
@@ -96,13 +147,17 @@ def load_bestiario(data_model, data_model_reinos):
 
     for cod in range(1, 6):  # Adicionar dados para 5 monstros fictícios
         nome = generate_random_name()
+        genero = random.choice(["Masculino", "Feminino"])
         raca = "Besta"
         classe = "Monstro"
         level = str(random.randint(1, 10))
         estado = "Normal"
-        vida = str(random.randint(50, 150))
-        mana = str(random.randint(20, 80))
-        vigor = str(random.randint(30, 100))
+        vida_t = str(random.randint(50, 150))
+        vida_a = vida_t
+        mana_t = str(random.randint(20, 80))
+        mana_a = mana_t
+        vigor_t = str(random.randint(30, 100))
+        vigor_a = vigor_t
         dano_fisico = str(random.randint(10, 30))
         dano_especial = str(random.randint(5, 20))
         defesa = str(random.randint(20, 40))
@@ -113,12 +168,11 @@ def load_bestiario(data_model, data_model_reinos):
         constituicao = str(random.randint(10, 20))
         carisma = str(random.randint(5, 15))
         inteligencia = str(random.randint(5, 15))
-        turno = str(random.randint(1, 24))  # Horário do dia que o monstro SPAWNA
         cod_reino = random.choice(reinos_data)[0]  # Escolha aleatória de um reino
 
-        bestiario_data.append([str(cod), nome, raca, classe, level, estado, vida, mana, vigor,
+        bestiario_data.append([str(cod), nome, genero, raca, classe, level, estado, vida_t, vida_a, mana_t, mana_a, vigor_t, vigor_a,
                                dano_fisico, dano_especial, defesa, defesa_especial, chance_esquiva,
-                               forca, destreza, constituicao, carisma, inteligencia, turno, cod_reino])
+                               forca, destreza, constituicao, carisma, inteligencia, cod_reino, "1", "1"])
 
     data_model.add_data(bestiario_data)
 
@@ -192,32 +246,34 @@ def load_acoes_personagens(data_model):
 def load_frases_npc(data_model):
     
     npc_data = [
-        ["1", "6", "Olá, aventureiro! Precisa de itens para suas jornadas?", "Neutra", "Vendedor", "Neutra", "1"],
-        ["2", "7", "Ei, você! Está pronto para enfrentar desafios?", "Boa", "Mentor", "Boa", "2"],
-        ["3", "7", "Vai encarar meu desafio? Hahaha, boa sorte!", "Ruim", "Mentor", "Boa", "3"],
-        ["4", "6", "Bem-vindo, aventureiro! O que você procura?", "Neutra", "Vendedor", "Neutra", "1"],
-        ["5", "6", "Se você tem itens valiosos, estou disposto a comprá-los.", "Neutra", "Vendedor", "Neutra", "2"]
+        ["1", "6", "Olá, aventureiro! Precisa de itens para suas jornadas?", "Neutra", "Vendedor", "Neutra", "1", "1", "1"],
+        ["2", "7", "Ei, você! Está pronto para enfrentar desafios?", "Boa", "Mentor", "Boa", "2", "2", "2"],
+        ["3", "7", "Vai encarar meu desafio? Hahaha, boa sorte!", "Ruim", "Mentor", "Boa", "3", "3", "3"],
+        ["4", "6", "Bem-vindo, aventureiro! O que você procura?", "Neutra", "Vendedor", "Neutra", "1", "1", "1"],
+        ["5", "6", "Se você tem itens valiosos, estou disposto a comprá-los.", "Neutra", "Vendedor", "Neutra", "2", "2", "2"]
     ]
     
     data_model.add_data(npc_data)
 
 
 if __name__ == "__main__":
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    game_data_dir = r'C:\Users\Sarakura\Desktop\Projeto\Attack_on_Ancestors\game_data'
 
     # Crie instâncias do DataModel para cada tabela
-    data_model_reinos = DataModel("Reinos.csv")
-    data_model_personagens = DataModel("Personagens.csv")
-    data_model_racas = DataModel("Racas.csv")
-    data_model_classes = DataModel("Classes.csv")
-    data_model_estados = DataModel("Estados.csv")
-    data_model_itens = DataModel("Itens.csv")
-    data_model_bolsas = DataModel("Bolsas.csv")
-    data_model_bestiario = DataModel("Bestiario.csv")
-    data_model_atributos = DataModel("Atributos.csv")
-    data_model_frases_narrador = DataModel("Frases_Narrador.csv")
-    data_model_frases_classes = DataModel("Frases_Classes.csv")
-    data_model_acoes_personagens = DataModel("Acoes_Personagens.csv")
-    data_model_frases_npc = DataModel("Frases_Npc.csv")
+    data_model_reinos = DataModel(os.path.join(game_data_dir, "Reinos.csv"))
+    data_model_personagens = DataModel(os.path.join(game_data_dir, "Personagens.csv"))
+    data_model_racas = DataModel(os.path.join(game_data_dir, "Racas.csv"))
+    data_model_classes = DataModel(os.path.join(game_data_dir, "Classes.csv"))
+    data_model_estados = DataModel(os.path.join(game_data_dir, "Estados.csv"))
+    data_model_itens = DataModel(os.path.join(game_data_dir, "Itens.csv"))
+    data_model_bolsas = DataModel(os.path.join(game_data_dir, "Bolsas.csv"))
+    data_model_bestiario = DataModel(os.path.join(game_data_dir, "Bestiario.csv"))
+    data_model_atributos = DataModel(os.path.join(game_data_dir, "Atributos.csv"))
+    data_model_frases_narrador = DataModel(os.path.join(game_data_dir, "Frases_Narrador.csv"))
+    data_model_frases_classes = DataModel(os.path.join(game_data_dir, "Frases_Classes.csv"))
+    data_model_acoes_personagens = DataModel(os.path.join(game_data_dir, "Acoes_Personagens.csv"))
+    data_model_frases_npc = DataModel(os.path.join(game_data_dir, "Frases_Npc.csv"))
     
     # Chame as funções de carga de dados para cada tabela
     load_reinos(data_model_reinos)
