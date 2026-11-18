@@ -1,0 +1,41 @@
+name: Attack on Ancestors prototype checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check Python syntax
+        run: python -m compileall -q auth_store.py cadastro.py login.py classes
+      - name: Test safe local credentials
+        run: python -m unittest discover -s tests -p test_auth_store.py -v
+      - name: Test game rules
+        run: node --test tests/game.test.mjs
+      - name: Check game scripts
+        run: |
+          node --check demo/game.mjs
+          node --check demo/app.mjs
+      - name: Ensure user CSV is no longer tracked
+        shell: bash
+        run: |
+          if git ls-files --error-unmatch game_data/Usuarios.csv 2>/dev/null; then
+            echo "Legacy plaintext accounts must not be tracked"; exit 1
+          fi
