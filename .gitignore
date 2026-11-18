@@ -1,12 +1,26 @@
-# Arquivos específicos do Python
+# Python local runtime
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Ambiente virtual
+*.py[cod]
+.venv/
 venv/
+.pytest_cache/
+.coverage
 
-# Classes de Teste
-test_*
-Test_*
+# Credentials and personal data
+.local/
+.cache/
+.env
+.env.*
+!.env.example
+game_data/Usuarios.csv
+*.db
+*.sqlite
+*.log
+
+# Build output and local IDE
+build/
+dist/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
